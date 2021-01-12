@@ -1,6 +1,7 @@
-from typing import ForwardRef
+import sys, os
 import numpy as np
 import matplotlib.pylab as plt
+from dataset.mnist import load_mnist
 
 
 def AND(x1, x2):
@@ -95,7 +96,9 @@ def forward(network, x):
 
 
 if __name__ == "__main__":
-    network = init_network()
-    x = np.array([1.0, 0.5])
-    y = forward(network, x)
-    print(y)
+    (x_train, t_train) , (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+
+    print(x_train.shape)
+    print(t_train.shape)
+    print(x_test.shape)
+    print(t_test.shape)
