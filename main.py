@@ -103,11 +103,12 @@ if __name__ == "__main__":
     x, t = get_data()
     network = init_network()
 
+    batch_size = 100  # batch size
     accuracy_cnt = 0
-    for i in range(len(x)):
-        y = predict(network, x[i])
-        p = np.argmax(y)
-        if p == t[i]:
-            accuracy_cnt += 1
+    for i in range(0, len(x), batch_size):
+        x_batch = x[i : i + batch_size]
+        y = predict(network, x_batch)
+        p = np.argmax(y, axis=1)
+        accuracy_cnt += np.sum(p == t[i : i + batch_size])
 
     print("Accuracy:" + str(float(accuracy_cnt) / len(x)))
