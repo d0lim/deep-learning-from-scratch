@@ -133,3 +133,4 @@ dataset/t10k-labels-idx1-ubyte.gz
 .gitignore
 dataset/train-images-idx3-ubyte.gz
 dataset/train-labels-idx1-ubyte.gz
+.vscode/settings.json
