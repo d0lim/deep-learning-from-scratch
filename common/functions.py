@@ -18,13 +18,9 @@ def identity_function(x):
     return x
 
 
-def softmax(a):
-    c = np.max(a)
-    exp_a = np.exp(a - c)
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-
-    return y
+def softmax(x):
+    x = x - np.max(x, axis=-1, keepdims=True)
+    return np.exp(x) / np.sum(np.exp(x), axis=-1, keepdims=True)
 
 
 def mean_squares_error(y, t):

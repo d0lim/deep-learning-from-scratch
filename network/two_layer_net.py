@@ -16,7 +16,7 @@ class TwoLayerNet:
         # 계층 생성
         self.layers = OrderedDict()
         self.layers["Affine1"] = Affine(self.params["W1"], self.params["b1"])
-        self.layers["Relu"] = Relu()
+        self.layers["Relu1"] = Relu()
         self.layers["Affine2"] = Affine(self.params["W2"], self.params["b2"])
 
         self.lastLayer = SoftmaxWithLoss()
@@ -30,7 +30,6 @@ class TwoLayerNet:
     # x : 입력 데이터, t : 정답 레이블
     def loss(self, x, t):
         y = self.predict(x)
-
         return self.lastLayer.forward(y, t)
 
     def accuracy(self, x, t):
