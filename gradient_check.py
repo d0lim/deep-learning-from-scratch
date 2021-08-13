@@ -1,6 +1,3 @@
-import sys, os
-
-sys.path.append("..")
 import numpy as np
 from dataset.mnist import load_mnist
 from network.two_layer_net import TwoLayerNet
