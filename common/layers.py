@@ -1,4 +1,4 @@
-from common.util import im2col
+from common.util import col2im, im2col
 from common.functions import cross_entropy_error, softmax
 import numpy as np
 
@@ -199,9 +199,6 @@ class BatchNormalization:
         self.dbeta = dbeta
 
         return dx
-
-
-20
 
 
 class Convolution:
